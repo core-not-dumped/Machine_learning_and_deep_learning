@@ -1,0 +1,1142 @@
+1. Strong AI vs Weak AI
+Artificial General Intelligence vs Narrow AI
+사람처럼 행동함 (Strong)
+산업적으로 사용(Weak)
+
+
+2. Machine Learning: One way to implement weak AI 
+
+
+3. Tom Mitchell
+learn from E
+with respect to some class of tasks T
+and performance measure P
+
+
+4. Deep Learning
+deep neural network기반으로 만들어진 Learning algorithm
+
+
+5. AI > Machine Learning > Deep Learning
+
+
+6. Classes in ML
+(1) Supervised Learning(지도학습)
+- 데이터에 입력 값과 함께 출력 값이 주어진 경우, 입력 값과 출력 값의 관계를 학습하는 머신러닝 알고리즘
+- 데이터 형태 :  입력값 출력값 모두 주어짐
+- 주로 출력을 입력에 대하여 나타내는 함수인 y = f(x)를 학습
+- 분류(classification), 회귀(regression)에서 사용
+- classification에서
+class 2개인 경우 -> Binary classification
+class 여러개인 경우 -> Multi-class classification
+
+(2) Unsupervised Learning(비지도 학습)
+- 데이터에 출력 값이 없이 입력 값만 주어진 경우, 주어진 데이터의 특징, 패턴, 구조 등을 파악하는 머신러닝 알고리즘
+- 데이터 형태 : 입력값만있음
+- 군집화, 이상치 탐지, 다양체(manifold) 학습 등에 이용
+
+(3) Semi-supervised Learning(준지도 학습)
+- 데이터의 일부에만 출력 값이 주어진 경우, 출력 값이 존재하는 데이터 뿐만 아니라 출력 값이 주어지지 않은
+- 데이터의 정보 또한 활용하여 입출력 간의 관계를 학습
+
+(4) Reinforcement Learning
+agent가 한 action에 따라 Environment가 state와 reward를 결정해 준다.
+
+(5) Active Learning
+반지도 학습과 비슷함
+위의 learning방법을 통해 model을 만들고
+label이 없는 데이터를 사람에게 요구한다.
+-> 그 데이터가 주어졌을 때 모델이 많이 개선될 수 있는 데이터를 요구한다.
+
+(6) Transfer Learning(전이 학습)
+유사하지만 같지 않은 학습을 수행하는데에 있어
+미리 학습한 모델을 이용하여 학습을 진행한다.
+
+(7) Generative models
+원하는 방향으로 데이터를 생성하는 모델
+
+
+7. ML Applications
+(1) Computer Vision
+(2) Natural Language Processing
+(3) Medical Diagnosis and Healthcare
+(4) Autonomous Vehicle
+(5) Chemical Design(Generative model을 이용?)
+(6) Smart Factory
+(7) Finance
+(8) Games
+
+
+8. 독립 변수의 종류
+양적 입력 -> 온도 습도 무게(연속적인 값)
+양적 입력의 변환(log, 루트)
+다항식(2차, 3차)
+두 변수 사이의 교호작용(x3 = x1 * x2)
+질적인 입력을 위한 dummy variable(one-hot encoding)
+
+
+9.  단순 회귀 분석
+y = a + bx + e
+e~N(0, sigma^2)
+
+
+10. 최소제곱 계수 추정
+모회귀계수인 a, b는 최소제곱법에 의해 오차의 제곱의 합 D를 최소화하는
+추정량으로 추정한다.
+D = e^2 = (y - a - bx)^2
+이를 a,b로 편미분한 후, 0으로 놓고 연립 방정식을 풀면 된다.
+
+
+11. 단순 회귀분석의 가정
+(1) 두 변수 X와 Y간에는 직선관계가 성립되어야 한다.
+(2) 오차들은 평균이 0이고 분산이 sigma^2인 정규분포를 따라야 한다.
+(3) 오차들의 분산은 sigma^2으로 같아야 한다. (등분산성)
+(4) 오차들은 서로 독립이어야 한다.
+
+
+12. 결정계수 R^2 (coefficient of determination)
+y의 평균에서 왜 그만큼 떨어졌는가?
+SSE : 에러에 의해 설명되는 부분 -> 제곱형태
+SSR : Regression에 의해 설명되는 부분 -> 제곱형태
+SSE = SST - SSR
+R^2 = SSR / SST = 1 - SSE / SST -> 0이상 1이하
+
+
+13. 잔차분석
+가로축을 추정값 y(햇), 세로축을 잔차, e로하여 잔차 산점도를 작성할 경우
+모델이 잘 적합 되었다면 잔차는 어떤 경향도 없이 랜덤하게 분포할 것이다.
+
+
+14. 다중회귀분석
+다수의 중요 인자를 독립변수가 중요할 경우, 이들을 다중회귀 분석을 통해 분석을 한다.
+2개 이상의 독립변수와 종속변수와의 관계를 선형으로 가정하는 회귀모형이다.
+y = Xb + e
+
+X = 	1  x11  x21  x31     xk1
+      	1  x12  x22  x32     xk2
+
+           	1  x1n  x2n  x3n     xkn
+
+b = 	a
+	b1
+	
+	bk
+
+X' = X transpose
+b(햇) = (X'X)^(-1)X'y
+ 
+
+15. 곡선회귀분석
+y = a + b1x + b2x^2 + b3x^3 + .. + bkx^k + e
+x = x1, x^2 = x2...로 놓으면 다중회구분석과 동일
+
+
+16. 다중공선성의 정의
+- 설명변수들간의 상관계수가 높을 경우, 회귀계수의 값이 매우 커진다.
+- 특정 설명변수가 다른 변수들의 선형결합으로 표현되는 경우
+- 회귀계수의 변동성이 커져서 통계량과 모수가 서로 반대 부호를 가질 수 있다.
+- F-통계량은 크나, t-통계량들이 작으면 의심해 볼 수 있다.
+
+
+17. 분산팽창계수
+나며지 설명변수들로 새로운 회귀식 추정후,
+VIF = 1/(1-R_j^2) > 10이면 의심의 여지가 있음
+
+
+18. 다중공선성 문제
+- 사용되는 독립변수들 사이의 상관관계가 어느 정도 존재하는 것이 일반적이다.
+- 다중공선성을 최소화 하는 것이 낫다.
+- 예측이 목적인 경우에는 어느 정도 허용될 수 있다.
+
+
+19. 다중공선성의 해결방법
+(1) 변수 선택
+Step-wise regression: Forward or Backward Selection
+(2) 변수 추출
+능동회귀(Ridge regression), 주성분 회귀(PCA)
+
+
+20. 모형 선정 척도
+AIC, BIC, Mallows' Cp
+로 모델의 복잡도(Occam's Razor)와 적합이 얼마나 되었는지를 동시에 고려한다.
+
+
+21. 서브셋 선택
+(1) 최적 서브셋 회귀(Best subset regression)
+RSS 값이 가장 낮은 예측 모형의 최적 서브셋을 구하는 과정이다.
+
+(2) Forward Selection: 공헌도가 높은 변수 추가
+
+(3) Backward Elimination: 공헌도가 낮은 변수 삭제
+
+(4) Stepwise Selection
+Forward Selection과 유사하지만 변수 선택 이후, 모형에 포함된 나머지 변수에 대하여
+유의성 검정을 하여 유의하지 않는 변수를 제거
+
+
+22. Extra Sum of Sqares
+회귀분석 모형에 변수가 추가된 경우 SSR의 증가분(SSE의 감소분)을 의미
+
+
+23. 과적합(overfitting), 과소적합(underfitting)
+임의의 데이터에 대하여 성능이 뛰어난 모델, 즉 일반화오차 generalization error가 작은 모델을 원함
+
+overfitting -> 학습이 지나치게 학습 데이터에 맞추어져 일반화 성능은 오히려 떨어지는 경우가 존재
+- 지나치게 많은 독립변수의 사용(다중회귀분석)
+- 지나치게 높은 차원의 사용(곡선회귀분석)
+-> 정규화, 독립변수의 선택으로 해결
+underfitting -> 학습 데이터에 대하여 제대로 학습되지 않아 모델의 성능이 떨어지는 경우
+
+
+Shrinkage Methods (Ridge Lasso)
+24. Ridge regression
+기존의 오차 제곱에 lambda*sigma(beta^2)을 더한다.
+그러면
+b(햇) = (X'X + lambda * I)^(-1)X'y로 나타낼 수 있다.
+람다가 커지면 b값이 작아진다.
+
+
+25. Lasso regression
+기존의 오차 제곱에 lambda*sigma|beta|을 더한다.
+b(햇) 구할 수 x
+람다가 커지면 b값이 작아지다가 0이된다.
+
+
+26. L_q norm regularization
+기존의 오차 제곱에 lambda*sigma|beta|^q을 더한다.
+1>=q일 때 변수 선택이 일어난다.
+
+
+27. Elastic net
+람다 * 시그마(알파*(베타제곱) + (1-알파)*(베타 절댓값))
+
+
+28. 최우도 추정을 통해 얻은 최적 회귀계수는 최소제곱법을 통하여 얻게 된 최적 회귀 계수와 같다.
+
+
+29. 분류 -> target - 클래스
+학습 데이터가 주어졌을 때, 해당 학습 데이터의 독립변수들을 이용하여 클래스를 예측하는 것
+클래스: 연속된 값이 아닌 특정 그룹을 상징하는 이산적인 값
+
+
+30. 정확도 accuracy
+클래스를 올바르게 분류한 데이터 수 / 전체 데이터의 수
+그러나 정확도를 기준으로 판단할 경우 클래스가 불균등한 문제에서 원하지 않는 결과를 얻게 될 수 있다.
+(TP + TN) / (TP + FP + TN + FN)
+
+31. confusion matrix
+
+
+32. 정밀도(precision)
+TP / (TP + FP)
+
+33. 재현율(recall)
+TP / (TP + FN)
+
+34. precision 증가 -> recall 감소
+둘다 큰 것이 좋긴함!
+
+35. F1 score = 2*pre*re / (pre + re)
+
+
+36. Cut-off value
+Confusion matrix는 cut-off value에 따라 달라짐
+TPR = TP / (TP + FN(반전된값)) -> 증가하는게 좋음
+FPR = FP / (FP + TN(반전된값)) -> 감소하는게 좋음
+-> 하지만 cutoff value 감소 -> TPR, FPR 같이 증가
+
+
+37. ROC curve
+TPR과 FPR을 그래프로 나타낸것, 왼쪽 위로 치우칠수록 좋은 모델이다.
+아래의 넓이를 구해서 모델의 성능을 측정한다.
+모두다 negative -> 왼쪽 아래
+모두다 positive -> 오른쪽 위
+랜덤모델은 y=x의 직선형태를 나타낸다.
+
+
+39. 최소제곱선형분류
+회귀분석과 비슷한 식을 이용한다.
+아웃 라이어에 민감하다.
+
+
+39. 선형 판별 분석 LDA (Linear Discriminant Analysis)
+각 클래스의 확률밀도함수가 가우시안 분포를 따른다고 가정
+-> 두 클래스를 나누는 boundary는 선형형태로 나타난다.
+
+파이 -> 각 클래스별로 데이터의 개수 / 데이터의 전체 개수
+뮤 -> 그 데이터에 속한 평균
+시그마 -> 그 데이터에 속한 공분산
+
+데이터의 분리 : between variance(서로 다른 집단 간의 차이)의 최대화
+및 within variances(같은 집단 안에서의 차이)의 최소화 시킴
+
+
+40. 이차판별 분석 -> 클래스의 공분산이 서로 같지 않다고 가정
+
+
+41. 로지스틱 회귀
+- 가장 단순한 선형분류모형 중 하나이며, 각 클래스에 속할 확률 값을 제공함
+- 각 클래스에 속할 확률을 모두 더하면 1임
+- 정규화를 사용할 수 있다. (Ridge Lasso)
+로지스틱 함수 1/(1+e^(-x))
+
+
+42. 조건부 확률
+특정 사건이 벌어졌다는 가정 하에서 또 다른 사건이 벌어질 확률
+B가 주어진 상황에서 A의 조건부 확률
+P(A|B)
+주어진 상태 B를 조건 혹은 사전정보(prior information)이라 한다.
+
+
+43. 결합확률(joint probability) -> 교집합계산
+
+
+44. 주변확률(marginal probability) -> 일부 확률에 대해서만 표현
+
+
+45. 베이즈 정리
+
+- 전확률 정의(theorem of total probability)
+Bi를 모두 합치면 전체 집합이 될 때
+P(A|Bi)*Bi의 확률을 모두 합치면 A가된다.
+
+- 베이즈 정리
+P(Bi|A) = P(Bi)P(A|Bi)/(시그마(P(Bi) * P(A|Bi)))
+posterior(사후확률) = likelihood(우도)(조건부확률) * prior(사전확률) / evidence(증거)
+
+- 베이즈 결정이론: 사후확률이 가장 높은 클래스로 분류
+
+
+46. 단순 베이즈 분류 (Naive Bayes Classifier)
+클래스가 주어졌을 때, 입력 변수 Ai들 간의 독립을 가정(conditional independence)
+우도가 알기 쉽게 분리된다.
+
+- 데이터로부터 확률의 추정(연속 값의 경우)
+(1) 특정 범위들로 이산화
+순서형 변수로 변환됨
+독립성의 가정이 깨질 수 있음
+(2) 이원분리 2개로 분리
+(3) 확률밀도 추정
+가우시안 분포로 평균과 표준편차를 알아서 계산한다.
+
+- 조건부 확률 중 하나 이상이 0인 경우 전체 확률이 0이 되는 문제가 발생
+(1) 라플라스 (N+1)/(N+c)
+(2) m0 추정 (N+mp)/(N+m)
+
+- outlier에 강건함
+- 결측 값을 조건부 확률 계산시 배제하여 자연스럽게 처리 가능
+- 몇몇 attribute에 대하여는 독립성 가정이 성립하지 않아
+Bayesian Belief Network사용
+
+
+47. 베이지안 추정 이론
+Fequentist -> 관측값을 무조건 따름
+Bayesian -> 자기의 주관적인 생각을 도입
+
+
+48. 의사결정나무(Decision tree)
+널리 사용되는 분류기 중 하나: 복잡한 데이터에 대하여 좋은 성능을 보임
+학습 데이터로부터 설명 가능한 분류 기준을 결정
+데이터를 뿌리로부터 말단의 잎까지 순차적으로 분류
+
+
+49. Hunt's Algorithm
+- 만일 Dt에 속한 데이터가 모두 하나의 클래스 yt에 속해있다면
+t는 y1클래스의 leaf node
+- 만일 Dt에 속한 데이터가 존재하지 않으면, t는 기본 클래스 yd의 leaf node
+- 만일 Dt에 속한 데이터가 둘 이상의 클래스에 속해 있다면,
+특정 기준을 적용하여 데이터들을 더 작은 부분집합으로 분리
+
+- Greedy strategy
+하나의 입력 변수를 이용하여 특정 최적 기준을 만족하는 분리 조건을 탐색
+현재 상태에서 가장 좋아보이는 것을 선택한다.
+
+- 어떻게 분리할 것인가
+(1) 명목형 변수(Nominal Attributes)
+Multi-way split: 서로 다른 값을 모두 사용하여 분리 (각각 분리)
+Binary split: 값들을 두 개의 부분집합으로 분리, 최적의 분리 기준 탐색 필요
+
+(2) 순서형 변수(Ordinal Attributes)
+Multi-way split
+Binary split: (Small Medium), (Large)로 분리해야됨!
+
+(3) 연속형 변수(Continuous Attribute)
+Binary split: >80K? Yes No
+Multi-way split
+
+- Best split
+Greedy approach: 균질한 class 분포가 선호됨
+(1) Gini Index
+GINI(t) = 1-(sigma)(p(j|t)^2)
+최대값: 1-1/nc (가장 못 분리함) -> 데이터들이 모든 클래스에 균일하게 분포
+최소값: 0 (가장 잘 분리해냄) -> 모든 데이터가 하나의 클래스에 속해있을 때
+종합 지니 인덱스는 클래스에 속한 데이터의 갯수의 비율에 의해 더해진다.
+
+(2) Entropy
+Entropy(t) = -sigma(p(j|t))log(p(j|t))
+최대값: log(nc) -> 데이터들이 모든 다른 클래스
+최소값: 0 -> 모든 데이터가 하나의 클래스
+
+(3) Classification Error
+Error(t) = 1-max(P(i|t)) <- 가장 많이 들어있는 클래스
+최대값: 1-1/nc (가장 못 분리함) -> 데이터들이 모든 클래스에 균일하게 분포
+최소값: 0 (가장 잘 분리해냄) -> 모든 데이터가 하나의 클래스에 속해있을 때
+
+(4) Gain Ratio
+문어발로 나뉘는 것을 방지할 수 있다.
+
+- Tree Induction의 중단
+(1)한 노드 안의 데이터가 모두 같은 클래스에 속할 경우 분리를 중단
+(2)한 노드 안의 데이터의 입력 값이 모두 비슷한 경우 분리 중지
+(3)조기종료: overfitting을 방지
+
+- 요약
+(1)학습이 쉽고 빠름
+(2)새로운 데이터에 대한 분류가 빠름
+(3)작은 크기의 의사결정나무에 대하여 설명 및 이해가 쉬움
+(4)많은 데이터셋에서 우수한 성능을 보임
+
+50. Oblique Decision Trees
+원해 축과 평행하게 분리하는데
+x+y<1과같이 여러 변수를 동시에 고려하여 분리 조건을 생성
+더욱 다양한 표현 가능, 높은 계산량요구 -> 현실에서 잘 안쓰임
+
+
+51. Decision tree->overfitting잘됨
+Optimistic approach -> training error = test error
+Pessimistic approach -> test error = training error + N * 0.5 (N = number of leaf nodes)
+10/1000 -> (10 + 30 * 0.5)/1000 (leaf node 30개)
+Reduced error pruning -> validation data이용
+
+
+52.Occam's Razor
+두모델이 유사한 generalization error를 가질 경우, 단순한 모델을 선호한다.
+우연히 적합될 가능성이 있다.
+따라서 모델의 복잡도 또한 함께 고려해야 한다.
+
+
+53. Pre-Pruning
+- 트리가 다 구성되기 전에 알고리즘을 중단
+
+- 한 노드에 속한 데이터가 모두 같은 클래스 일 때
+- 한 노드에 속한 데이터의 입력 값이 모두 같을 때
+
+- 한 노드에 속한 데이터가 일정 수 이하일 때
+- 한 노드에 속한 데이터의 클래스 분포가 모든 입력 변수에 독립적일 때
+- 어떤 분리도 불순도 수치를 개선하지 못할 때
+
+
+54. Post-Pruning
+- 의사결정나무를 최대 수치까지 온전히 학습
+- 완성된 의사결정나무의 노드를 제거
+
+
+55. k-근접 이웃(k-nearest neighbor)
+- 분류하고자하는 새로운 데이터와 가장 가까운 k개의 학습 데이터를 이용하여 새로운 데이터의
+클래스를 분류
+
+
+56. 가까움의 정의
+-유클리디안 거리
+-마할라노비스 거리 -> 유클리디안 거리를 스케일링함
+-코사인 유사도 -> 각도를 봄
+-민코프스키 거리
+sigma(|xi - yi|^p) ^ (1/p)
+p에 따라 거리가 달라짐
+p = 1 -> Manhattan distance
+p = inf -> 가장 큰 성분의 차이만 남음
+p = 0 -> 서로 다른 성분의 수
+
+
+57. 가까움의 정의: 이산 값이 경우
+해밍거리: 서로 다른 성분의 수
+karolin -> kathrin : 3
+
+
+58. k 값의 결정
+일반적으로 k 값은 validation set의 error를 통하여 결정
+입실론 nearest_neighbor 일정 수의 근점 이웃이 아닌 일정 거리 안의 근접 이웃을 활용
+k 작으면 overfitting
+k 너무 크면 underfitting
+
+
+59. knn의 장점과 단점
+- 단순하고 직관적임
+- 확률 분포 등 특별한 과정 불필요
+- 복잡한 형태의 데이터에서 잘 작동
+
+- 테스트 데이터마다 거리 계산이 필요하여 분류 속도가 느림: lazy learner
+- Scaling, distance measure 등 사용자의 선택이 필요
+
+
+60. 앙상블(Ensemble Learning)
+- 여러 가설의 집합을 선택하고, 그들의 예측 결과를 결합하는 방법
+- 같은 혹은 다른 학습 데이터에 대하여 100개의 decision treee를 만들고
+그들의 결과를 투표하여 새로운 데이터에 대한 분류를 수행하는 방식(Random forest)
+- 분류오차를 감소시킬 수 있음. 앙상블 모델은 여러 분류기를 동시에 사용함에 따라 오분류를 수행하지 않을 것으로 기대
+- 무작위 오차들이 서로 상쇄되어 좋은 결과를 가져올 수 있음
+
+(1) 서로 다른 학습 데이터를 사용
+(2) 서로 다른 학습 알고리즘을 사용
+
+- No Free Lunch Theorem
+어떤 하나의 알고리즘도 모든 경우에 좋을 수 없다.
+
+- Majority vote -> 모델들이 투표해서 좋은 결과를 얻음
+
+
+61.
+서로 다른 학습 알고리즘을 사용: 헤테로지니어스 앙상블
+같을 알고리즘이지만 서로 다른 모수를 선택: 호모지니어스 앙상블
+서로 다른 종류의 입력 변수를 사용: 호모지니어스 앙상블
+
+
+62. 한 종류의 학습 방법을 사용하지만, 학습 데이터를 조작하여 다양한 모델을 만듬
+학습 데이터의 변형에는 여러 방법이 사용될 수 있음
+Bagging(bootstrap aggregation) : 학습 데이터 X로부터 N개의 sample을 복원추출 <- 데이터가 중복해서 랜덤으로 추출
+Boosting : AdaBoost
+	- Strong Learner -> 원하는 수준의 정확도를 가지는 모델을 생성
+	- Weak Learner -> 무작위 선택보다 더 우수한 정확도의 모델을 생성	
+	Weak learner에 의해 오분류된 데이터의 가중치를 증가
+	Weak learner에 의해 정분류된 데이터의 가중치를 감소
+	이전 단계에서 제대로 분류하지 못한 어려운 데이터들에게 집중
+
+
+63. Random Forests -> Bagging of Decision Trees
+- 프루닝하지 않는다.
+- 빠른 속도
+- overfitting을 방지
+- 실제 문제에서 잘 작동
+- 많은 수의 featuer 처리 가능
+
+increasing m
+- decision tree간의 correlation 증가
+- 각 tree의 정확도 증가
+- Tuning set을 이용하여 적절한 m을 결정 가능
+
+
+64. Support Vector Machine -> Binary classification
+Maximum margin classifier
+
+65. Hyperplane -> 임의의 공간을 반으로 양분
+z = 0이면 hyperplane이 원점을 지나게 됨
+2차원 공간에서의 초평면: 1차원 직선
+
+
+66. support vectors
+hyperplane에 가장 가까운 vector들
+이 알고리즘은 support vector에 의존적이다.
+
+67. Margin: decision boundary로부터 가장 가까운 데이터까지의 거리
+Margin을 최대화하는 hyperplane을 선택
+Margin 증가 -> generalization error감소
+작을 경우 -> overfitting
+
+
+68. Linear SVM: seperable case -> 선형으로 완전히 분류 가능
+분류를 할 때 wx+b가 +1보다 크거나 wx+b가 -1보다 작아야함
+
+
+68. Linear SVM: non-seperable case -> 선형으로 완전히 분류 불가능
+- 작은 오차는 허용하여 decision boundary를 구함
+- 오차와 margin간의 trade-off관계에 대한 조절이 필요
+- 오차를 위하여 slack variabel도입
+- soft margin -> 오차를 어느정도 허용하는 margin
+- 새로운 목적함수 -> 모수 C를 통하여 margin과 error의 trade-off조절 (오차를 무한히 허용할 수 없기 때문에)
+C(error)^2을 더해준다.
+(regularization)
+
+
+69. Nonlinear SVM -> Decision boundary가 비선형인경우
+- 고차원 mapping을 이용한다 -> 선형으로 분리한다 -> 다시 원래대로 mapping시킨다.
+- 고차원 매핑한 함수(복잡한 계산)를 그냥 한 함수로 표현한다 -> kernel 함수
+K(xi, xj) = 프사이(xi)^T * 프사이(xj) -> kernel trick
+- Mercer's theorem
+Every positive semi-definite symmetric function is a kernel
+all z != 0, z^T * A * z >= 0   (positive semidefinite)
+
+- kernel 함수의 종류
+linear : 위의 Linear SVM과 동일
+polynomial of power p
+gaussian(radial-basis function): 가우시안 커널 -> 무한차원이다. 계산량이 많다.
+
+
+70. 군집화
+- 서로 비슷하거나 유사한 데이터들이 같은 군집에, 서로 다른 데이터들이 다른 군집에
+있도록 하는 군집을 찾는 방법
+- 비지도 학습
+
+71. 군집화의 응용
+- 이해 -> 그룹들을 확인
+- 요약 -> 큰 데이터 셋의 사이즈의 축소
+
+
+72.
+partitional clustering -> 데이터들을 겹치지 않는 부분 집합으로 분할하여
+하나의 데이터는 오직 하나의 부분집합에만 속하도록 함 (k-means)
+hierarchical clustering -> 계층적 구조를 이루는 중첩된 군집들을 구성
+
+
+73.  Other distinctions(구별)
+(1) 배타적 vs 비배타적
+- 비배타적 군집화에서는 데이터가 여러 군집에 소속될 수 있음
+- 경계선상의 데이터를 표현하는데 적합
+
+(2) Fuzzy vs non_fuzzy
+- Fuzzy clustering에서는 하나의 데이터가 모든 군집에 0과 1 사이의 가중치를 가지고 소속됨
+- 가중치의 합은 1임
+- 확률적 군집화와 유사
+
+(3) 부분적 vs 완전
+때때로, 데이터의 일부에 대해서만 군집화가 필요한 경우
+
+(4) 비균질 vs 균질
+서로 다른 크기, 모양, 밀도의 군집을 확인
+
+
+74. K-means clustering
+- 분할적 군집화 방법론
+- 각 군집에는 centroid가 존재
+- 각 데이터는 자신과 가장 가까운 중심점을 가진 군집에 할당됨
+- 군집의 수는 미리 결정되어야 함
+- 단순한 알고리즘
+
+- 초기 중심점들을 종종 임의로 선택됨
+초기 중심점에 따라 서로 다른 군집이 형성됨(local optimal problem)
+- 중심점은 주로 군집에 소속된 데이터들의 평균으로 결정됨
+- 가까움은 유클리디안 거리, 코사인 유사도, 상관관계 등으로 정의
+- K-means clustering 방법은 위에 언급된 일반적인 유사성 측도에 대하여 수렴함
+- 대부분 초기 몇 회의 반복에 수렴됨
+
+- 평가기준 -> 오차제곱합(sum of squared errors, SSE)
+(1)각 데이터에 대하여, 에러는 가장 가까운 군집의 중심점까지의 거리로 측정됨
+(2)에러를 제곱하여 모두 더함
+(3)여러 군집화 결과 중 에러가 가장 작은 군집화 결과 선택
+(4)SSE를 감소시키는 가장 쉬운 방법은 군집의 수인 K를 증가시키는 것
+-> 하지만 K는 적을수록 좋다
+
+
+75. Initial Centroids Problem을 해결하는 방법
+(1) 반복
+도움이 되지만 확률이 지나치게 낮은 경우에는 다수의 반복이 필요
+(2) 일부 데이터를 샘플링하여 계층적 군집화를 적용, 초기 대표값을 확인
+(3) K보다 많은 수의 초기 대표값을 잡은 후, 이 중 K개의 대표값을 선택
+서로 멀리 있는 대표값들을 선택
+(4) 후처리
+(5) Bisecting K-means
+처음에 전부 같은 그룹 -> 점점 2개씩 쪼개 나간다.
+
+
+76. K-means의 문제
+- 서로 다른 크기의 군집들(비슷한 크기의 클러스터를 만들려고 한다.) 
+- 서로 다른 밀도의 군집들
+- 원형모양이 아닌 군집들
+- 이상치에 민감하게 반응한다. -> 평균 대신 중앙값(median)을 사용한다.
+
+
+77. Hierarchical clustering
+- 계층 구조를 이용하여 군집들을 생성
+- 덴드로그램을 이용하여 시각화
+합병과 분리를 기록하는 나무 구조의 그림
+- 군집의 수를 미리 결정하지 않음
+덴드로그램 상에서 적절하게 cutting line을 조절하여 군집의 수 결정 가능
+- 의미있는 분류 체계와 대응가능
+
+- Agglomerative: 각데이터를 군집으로 점점 합쳐나감
+- Divisive: 모든 데이터를 포함하고 있는 하나의 군집에서 점점 나눔
+
+78. Agglomerative Clustering Algorithm
+- 두 군집의 근접도를 계산하는 것이 핵심연산
+두 군집의 거리를 정의하는 서로 다른 방식의 서로 다른 알고리즘을 구분하는 요소
+
+- cluster similarity
+(1) MIN(Single Link): 두 군집 사이에 제일 가까운 거리 -> 큰 cluster, 작은 cluster를 잘 나눔, outlier나 noise에 민감하게 반응
+(2) MAX(Complete Linkage): 두 군집 사이에 제일 먼 거리 -> outlier에 강하다, 큰 cluster, 작은 cluster를 구분하기 힘듬
+(3) group average: 두 군집사이의 데이터 사이의 거리의 모든 average -> Min과 Max의 중간
+(4) distance between centroids: 두군집의 중심사이의 거리 -> 구형의 군집을 형성, 노이즈, 이상치에 덜 민감
+(5) ward's method: 두 군집이 병합되었을 때의 총 within variance를 이용하여 두 군집 사이의 유사도를 계산
+제곱거리를 사용할 경우 group average 방법과 유사
+구형의 군집을 형성, 노이즈, 이상치에 덜 민감, K-means 초기값을 결정하는데 사용
+
+
+79. 단점
+- 한번 두군집을 병합하기로 결정되면 다시 분리되지 않음
+- 직접적으로 최적화되는 목적함수가 존재하지 않는다.
+- 서로 다른 방법론들은 각각 다음 중 하나 이상의 약점을 가진다.
+노이즈와 이상치에 민감
+군집의 크기와 모양을 조절하기 어려움
+큰 군집을 분리하려는 경향
+
+
+80. Cluster validity
+- 군집 분석에서는 군집화의 결과가 좋은 정도를 측정하는 것이 중요한 문제
+- clusters are in the eye of the beholder -> 군집은 보는 사람의 눈에 따라 달라진다.
+- 왜?
+노이즈에 적합되는 패턴을 피하기 위하여
+군집화 방법들끼리의 비교를 위하여
+두 군집화 결과를 비교하기 위하여
+두 군집을 비교하기 위하여
+
+- External Index: 외부에서 주어진 클래스 레이블과 군집 레이블을 비교하여 군집을 평가
+- Internal Index: 외부의 정보 없이 군집화가 잘 이루어진 정도를 평가
+- Relative Index: 두 군집화 또는 군집을 비교하여 평가
+
+
+81. Measures of Cluster Validity
+- Proximity Matrix: 거리를 기반으로 얼마나 근접한지 나타내는 메트릭스
+- Incidence Matrix: 두 데이터가 같은 군집에 속해 있으면 행렬의 성분 값은 1, 아니면 0
+
+군집간의 Correlation의 절댓값이 크면 더 좋은 군집화임!
+
+
+82. Internal measures: cohesion and separation
+Cohesion은 군집 내부의 SSE를 이용하여 측정됨(WSS) -> 작게
+Separation은 군집 간의 거리의 제곱의 합으로 측정됨 (데이터 수를 곱함) (BSS) -> 크게
+BSS + WSS = constant
+
+
+83. Adjusted Rand Index(ARI)
+두 군집의 비교
+함께 소속된 pair의 수를 측정
+
+
+84. 다양체 가정
+- 기존의 머신러닝은 많은 분야에서 잘 적용되었으나 인공지능 스러운 분야는 잘 해결하지 못함
+- 학습 데이터가 분포하는 정의역에서, 공간의 대부분은 의미를 가지지 않는 입력들이고,
+흥미로운 입력들은 일부 점으로 이루어진 몇몇 다양체 상에 존재한다.
+- 우리가 실세계에서 볼 수 있는 이미지, 텍스트, 소리 등은 현실에 존재하는 쪽에 확률 분포가 집중되어 있음
+- 이러한 다양체들은 하나 또는 여러 개가 존재하며, 다양체 내부에서의 움직임은
+다양체 사이의 이동이 의미를 가진다. (-> 얼굴의 각도에 따른 사진), 사람의 얼굴과 고양이 얼굴은 연결되지 않은 다양체
+
+
+85. xor문제
+- 선형으로 분리 불가능
+- 비선형적인 변환이 반드시 필요하다.
+ex) ReLU
+- 신경망의 첫 번째 층에서는 표현의 변환을 학습하고, 두 번째 층에서는 선형 분류를 수행
+
+86. 다층퍼셉트론(Multilayer Perceptron, MLP, deep feedforward network)
+Feedforward: 정보는 input에서 output으로 한방향으로 흘러간다.
+- 신경망의 층의 수를 깊이, 각 층에 존재하는 node의 수는 넓이로 표현
+
+
+87. 신경망의 학습
+- 신경망의 층들 사이를 연결하는 매개변수들의 값을 결정
+- 기울기 하강법(gradient descent)를 통하여 이루어진다.
+- gradient descent 방법을 적용하기 위해서는 비용함수를 이러한 매개변수들과 node들로 표현할 필요가 있음
+- 비선형적인 활성함수를 사용하는 경우, 비용함수가 convex하지 않아 기울기 하강법을 통하여
+광역 최적해(global optimum)에 도달하지 못할 가능성이 존재
+
+
+88. learning rate
+너무작으면 천천히 수렴
+너무크면 발산
+
+
+89. 
+Forward propagation: 입력 x로부터 정보를 순방향으로 진행하여 예측값 y를 생성하여 cost function을 계산
+Backpropagation: 계산된 cost function을 이용하여 역방향으로 정보를 전파하여 gradient descent를 위하여 gradient를 계산하는 단계
+
+
+90. cost functions
+- 확률적인 관점에서 신경망은 입력값과 출력값의 관계를 나타내는 다음의 조건부 확률을 결정한다.
+p(y|x; theta)
+- 따라서 우리는 훌륭한 모수를 학습하기 위하여 위의 조건부 확률에 대한 최우도 추정을 한다.
+log(위의 값,y 대신 yi, x 대신 xi)를 크게 만들어주는 theta를 찾는다.
+- 이를 비용함수로 나타내면(negative log-likelihood, NLL)
+-log(위의 값,y 대신 yi, x 대신 xi)
+
+- 가우시안 분포도 사용
+
+
+91. output unit
+- 출력단위의 선택은 비용함수와 밀접하게 연관되어 있음
+- 출력단위의 경우 수행하고자 하는 작업에 맞추어 선택하는 것이 일반적
+- 시그모이드 유닛: 이원분류의 경우
+시그모이드 함수는 0과 1 사이의 값을 출력, 베르누이 분포의 확률을 표현하기 위하여 사용
+cross entropy사용
+- 소프트맥스 유닛: 다원 분류의 경우
+출력 벡터의 값은 각 클래스에 속할 확률을 의미
+
+
+92. hidden unit
+Activation Function 
+- sigmoid -> step function의 근사형이다.
+포화된 노드는 gradient값을 사라지게 만든다(값이 커지면 gradient값이 0이 되어 학습이 잘 안된다.)
+zero-centered되지 않음(0과 1사이이이기 때문)
+exponential함수의 계산이 필요
+
+- tanh
+-1과 1 사이의 값 출력
+zero centered되었으나 gradient는 여전히 사라진다.
+
+- ReLU
+계산이 빠르고 효과적임
+입력이 양수인 부분에서 gradient가 사라지지 않는다.
+sigmoid/tanh에 비교해 수렴이 빠름
+zero-centered되지 않고 입력이 0보다 작은 경우 gradient가 0임
+
+- Leaky ReLU
+어떤 부분에서도 gradient가 사라지지 않음
+
+- ELU
+음수 부분이 exponential
+큰 음수 부분에 대하여 영향을 덜 받아 노이즈에 강인함
+
+- Maxout
+ReLU와 Leaky ReLU의 일반화
+두 선형 식으로 구성되기 때문에, gradient가 모든 곳에서 사라지지 않는다.
+그러나 학습해야하는 모수의 수 증가
+
+
+93. Universal Approximation Theorem
+hidden layer가 1층인 신경망으로
+모든 Borel measurable function을 근사 가능하지만, 원하는 함수를 근사하도록
+학습이 보장된다는 이야기는 아님
+
+width가 감당할 수 없을 정도로 커지면 -> depth로 해결한다.
+
+
+94. 머신러닝 알고리즘을 학습할 때에는 
+training error, generalization error(test data)의 차이를 최소화 시켜야 한다.
+
+
+95. 모델의 복잡도가 큰 딥러닝에서는 overfitting문제가 발생하기 쉬움
+-> regularization(학습하고자하는 파라미터의 값에 제약을 주어 모델의 복잡도를 낮추는 방법)연구됨!
+
+- parameter norm penalty
+학습하고자 하는 parameter들의 norm penalty를 기존의 cost function에 더하여 새로운
+objective function을 만드는 방법이 가장 널리 사용된다.
+바이어스에는 페널티에 포함시키지 않는다.(underfitting심각하게 발생)
+알파 = 0 -> overfitting 가능성있음
+알파 = inf -> underfitting
+L2-norm -> ridge-style(shrinkage)
+L1-norm -> Lasso-style(Parameter selection)
+
+- data augmentation
+적절한 데이터를 추가하는 것
+그러나 실제로 사용할 수 있는 데이터의 수는 한정적임
+그러므로 기존의 training data를 조작하여 새로운 training data를 생성
+
+- multitask learning
+여러 아웃풋으로 동시에 맞춰서 그런다
+
+- early stopping
+training epoch이 길어질수록 training data에 과적합되는 현상이 강함
+이를 막기 위해 별도의 validation set을 사용, validation set의 error가 감소하지 않는 경우 학습을 중단
+구체적으로 validation loss가 개선될 때마다 해당 지점에서의 모수들을 기억하고, 
+validation loss가 개선되지 않으면 최저의 validation loss를 나타내었던 모수들을 호출하여 사용
+
+- Ensemble
+
+- dropout
+여러 network들의 ensemble을 현실적으로 구현하는 방법
+Output node가 아닌 다른 node들을 제거하여 만들 수 있는 subnetwork로 구성된 ensemble model이 학습되도록 조절
+Training phase: 각 iteration마다 hidden node를 일정 확률 p를 이용하여 보존(1-p의 확률로 제거)
+Test phase: 각 weight에는 p만큼 보장됨
+
+
+96. Hyperparameter
+학습과정에서 변경되지 않고, 모델의 학습을 위하여 미리 결정해야하는 값
+logistic regression, SVM은 hyperparameter가 적은 모델이다
+
+
+97. k-fold cross validation
+데이터의 수가 적어 validation set을 따로 나누기 어려운 경우에 이 방법이 쓰인다.
+- 데이터를 k개의 서로 겹치지 않는 부분집합으로 분할
+- 이 중 k-1개의 부분집합을 training, 나머지 1개의 부분집합을 test set으로 이용하여 오차를 추정
+- 이를 서로 각기 다른 조합에 대하여 k번 반복하여 평균 오차를 확인 
+- test data는 관여하면 안된다.
+
+
+98. hyperparameter tuning
+모델에 대한 이해가 있을 경우 그냥 수동으로 결정
+일반적으로 자동화된 규칙을 통하여 최적 hyperparameter를 탐색
+
+99. Grid search
+hyperparameter들 마다 적절한 값을 선택하고
+이들을 catersian prodect에 대하여 validation loss를 탐색
+탐색 하고자하는 hyperparameter의 수가 많아질수록 탐색의 수는 지수적으로 증가
+
+100. Random search
+hyperparameter를 랜덤으로 픽한다.
+때때로 grid search보다 효과적임
+
+101. Model-based optimization
+시간이 오래 걸리고 성과가 좋지 않다.
+
+
+102. 어떤 알고리즘을 사용해야할까?
+문제의 복잡도에 따라 모델을 결정
+- 문제가 복잡하지 않다면 로지스틱 회귀 등 단순한 통계 기반의 머신러닝 모형을 사용
+
+딥러닝 가이드라인
+- 기본적인 MLP, CNN, LSTM등의 모델로부터 시작하여 점점 복잡한 방법론들을 적용
+- Regularization은 처음부터 사용하는 것을 추천
+- Early stopping은 거의 모든 경우 하는 것이 좋으며, dropout 또한 많은 경우에 추천
+- 기존 연구에서 좋은 알고리즘이 존재하면 이를 이용하여 시작(transfer learning)
+
+모수이 초기값: 대칭성의 파괴가 필요
+- greedy layerwise pre-training -> 좋은 모수를 학습하기전에 pre-training으로 미리 설정해 놓은다.
+- 연속하는 2개의 층을 미리 골라서 학습시키고 그 값들을 이용한다.
+
+최적화 방법론
+- Batch gradient
+- Stochaastic gradient
+- Mini-batch gradient
+- Momentum methods -> 기존의 운동하는 방향을 참고하여 변화시킨다.
+
+ 
+103. Data gathering
+언제 데이터의 추가 수집이 효과적일까?
+underfitting -> 모델의 복잡도를 증가시켜야 한다. 개선되지 않는다면 noise가 많거나 데이터가 잘못되었다.
+overfitting -> data gathering 효과가 있다.
+
+
+104. Convolutional Neural Network
+input이 local structure를 가지는 경우(x1과 x2가 서로 관련이 있을 때)에는 어떻게 처리해야하는가? (image)
+- Multidimensional (D>=2) array를 입력으로 받음
+- convolution layer, pooling layer, fully-connected layer 세 종류의 층으로 이루어짐
+
+
+105. convolution operation
+- 두 신호가 서로 영향을 주는 방식을 분석
+- 두 확률 변수의 합에 의한 확률밀도함수/확률질량함수를 도출
+- 두 다항식 간의 곱셈연산
+- kernel을 학습할 CNN에서는 convolution이 불필요하며 대신 cross correlation을 사용한다.
+
+- kernel size(filter의 크기), stride(step size), Input size
+Output size = (input size - kernel size)/stride + 1
+
+- output크기를 유지하고 싶다면? Zero-padding을 이용한다.
+
+- RGB이미지와 같은 multi-channel input에 대해서는 3차원 array를 가정한다.
+
+106. convolution operation
+(1) Sparse interaction
+- 대부분의 CNN에서 kernel은 input image에 비하여 크기가 작음
+
+- 따라서 kernel을 이용한 convolution 연선을 수행시, 각 input pixel은 자신 주변의 pixel과만 상호작용하여
+output을 만들어 내고, 학습해야 하는 parameter의 수가 비약적으로 감소한다.
+
+- Receptive field
+feature map의 각 부분에 영향을 준 input의 영역, spatial locality를 반영
+kernel의 크기가 크고, 신경망의 층이 깊을수록 receptive field가 커짐
+
+- Fully-connected와 convolution 연결의 계산량
+O(m*n) vs O(k*n)???
+
+(2) parameter sharing
+- CNN은 또한 kernel을 사용하여 같은 parameter의 사용을 반복
+
+- 학습에 필요한 매개변수의 수?
+O(m*n) vs O(k)???
+
+
+107. pooling
+출력들을 샘플링하여 요약 통계량으로 대체
+- average pooling, weighted average pooling, L2-norm pooling 등이 있다.
+- 일반적으로 pooling은 input representation의 크기를 감소시킴:
+요약된 정보만을 다음 층으로 전송하여 계산의 부담을 경감
+- Noise 등으로 인하여 image에 변경이 있는 경우, pooling stage는 결과가 invariant 하도록 도출
+- tiled-convolution: filter를 여러개 사용한다.
+
+108. CNN representation
+초반단계에서는 선과 점, 그후 물체의 특징을 찾는다.
+
+
+109. LeNet-5
+최초의 성공적인 CNN, MNIST data set에 대한 분류
+
+
+110. AlexNet
+- Image를 1000개의 class로 분류
+- Data cropping 및 flipping을 통한 data augmentation
+
+
+111. VGG-16
+- 단순한 layer들의 반복을 깊게 쌓아 좋은 성능을 보임
+
+
+112. GoogLeNet
+Inception module을 이용하여 feature를 효율적으로 추출(여러 모델을 concat)
+최종구조: fully-connected layer를 사용하지 않음
+inception module을 여러층 쌓음
+중간에 auxiliary classifier를 이용(중간에서도 똑같은 label을 만들게 하기)하여 성능 증대(vanishing gradient problem 완화)
+
+
+113. ResNet
+Residual block을 활용
+
+
+114. Recurrent neural network -> input이 sequence로 주어지는 경우 ( signal, text, 주식, 화학식)
+- 순차적 데이터, 보통 가변길이를 가지는 경우가 많음
+- 데이터의 특징이 순서에 크게 의존
+- 입력과 출력 모두 순차적 데이터의 형태로 나타날 수 있음
+
+- one to many -> image captioning(이미지를 보고 뭔지 자막 달아줌)
+- many to one -> text classification
+- many to many(끝난 다음에 output출력(machine translation), input이 들어가면 바로 output출력)
+
+- parameter sharing사용
+- Folded form vs unfolded form(안펼쳐짐, 펼쳐짐)
+
+- Loss function of sequential data => 모든 time step에서의 loss들의 합
+(sigma t)(log p(yt| x1, x2, ..., xt))
+
+
+115. output recurrence
+다음 time step의 hidden state가 이전 state의 output과 연관이 있는 경우
+teacher forcing -> train할 때 이전의 model에서 나온y값이 아니라 원래의 output label을 이용한다.
+                       (어느정도 가중치를 줘서 고려해줄수도 있다)
+
+
+116. Bidirectional RNN
+지금의 출력을 만드는데 뒤의 input값이 필요할 수도 있다.
+
+
+117. Encoder-Decoder Architecture
+Sequence-to-sequence model에 사용 (question and answering, machine translation)
+Encoder를 통하여 context를 생성, decoder의 hidden state는 context를 input으로 사용
+
+
+118. Deep RNN
+둘 이상의 hidden state층이 존재하는 RNN
+input to hidden, hidden to hidden, hidden to output
+
+
+119. RNN은 feed-forward neural network의 일종이기 때문에 gradient descent algorithm을 사용
+Unfolded architecture에서의 gradient descent: Backpropagation through time(BPTT)를 사용
+
+
+120. vanishing gradient
+멀리떨어져 있는 부분이 영향을 주는 경우가 많다.
+gradient 절대값이 1보다 작은 경우: 0으로 수렴
+gradient 절대값이 1보다 큰 경우: 발산
+
+Long-term dependency 문제를 해결하기 위하여 gated RNN모델들이 제안됨
+LSTM and GRU
+
+
+121. Long Short Term Memory(LSTM)
+Input gate: 입력 정보를 cell state에 반영하는 정도
+Forget gate: 과거 시점의 cell state를 현재 시점의 cell state에 반영하는 정도
+Output gate: 현재 시점의 cell state의 정보를 현재 시점의 hidden state에 반영하는 정도
+LSTM은 일반 RNN대비 4배의 parameter학습이 필요
+it = 1, ft = 0, ot = 1 -> 현재상태를 cell state에 반영하는 정도, 과거의 cell state의 반영정도 
+it = 0, ft = 1, ot = 1 ->
+ot = 0 -> 새출발을 하는 느낌
+
+
+122. Gated Recurrent Unit(GRU)
+Reset gate: 현재 시점의 임시 hidden state를 계산할 때에 과거 hidden state를 반영하는 정도
+Update gate: 현재 시점의 hidden state를 구성할 때에 과거 hidden state와 현재의 임시 hidden state를 반영하는 정도
+GRU은 일반 RNN대비 3배의 parameter학습이 필요
+rt = 1, zt = 1 -> 
+rt = 0, zt = 1 -> 과거 시점의 hidden state를 사용하지 않고, 현재 시점의 임시 state만을 사용한다.
+zt = 0 -> 임시 과거의 hidden state를 그대로 사용하겠다.
+
+ht(햇) = tanh(W[r*ht-1, x])
+ht = (1-zt)*ht-1 + zt*ht
+
+
+123.  Language Model
+n-그램을 이용한 언어 모델 <- 고전적
+앞의 n-1 개의 단어만 고려한다, 의미를 반영하기 매우 어렵다.
+
+- RNN을 이용한 언어모델
+현재까지 본 단어 열을 기반으로 다음 단어를 예측하는 방식으로 학습
+-> 확률분포 추정 뿐만 아니라 문장 생성 기능까지 갖춤
+ex) SQuAD
+
+
+124. Machine Translation
+- Attention Mechanism
+decoder의 hidden state 생성시 encoder의 서로 다른 부분에 집중하고 있는  context를 사용하여 model구현
+집중하고 있는 부분이 하얀색
+
+
+125. Image Captioning(CNN+RNN)
+
+
+126. Autoencoder -> unsupervised learning(Unsupervised Neural Network Model)
+입력을 그대로 모사하는 것을 목표로하는 신경망
+- 두 파트로 이루어짐
+인코더: 입력을 잘 표현할 수 있는 hidden representation으로 학습 h = f(x)
+디코더: 학습된 표현으로부터 입력 데이터를 재생성 x(햇) = g(h) = g(f(x))
+continuous input의 경우 mean squared error
+Binary input의 경우 cross-entropy 사용
+
+- Autoencoder의 목적
+전통적으로 autoencoder는 입력 데이터를 잘 표현하는 hidden representation을 찾는 것을 목적으로 함
+차원축소, 특징 학습에 이용
+
+- trade off
+모델의 복잡도를 늘린다면 입력을 완벽하게 표현하지만 의미있는 hidden representation을 얻기 어려움: overfitting (over complete AE)
+모델의 복잡도를 감소시키면, 입력을 완벽하게 표현하지 못하지만 hidden representation은 찾게 된다: uncomplete autoencoder (under complete AE)
+
+- Autoencoder의 activation function이 선형 함수일 경우 PCA와 동일
+
+- regularization
+hidden layer의 dimension이 autoencoder보다 큰 경우, autoencoder는 과적합 되어 좋은 표현을 학습하지 못한다.
+하지만 이 경우에도 적절한 정규화를 통하여 autoencoder를 학습하는 것이 가능하다.
+regularization을 할때 hidden layer의 size를 고려한다.
+
+
+127. Sparse autoencoder
+- Lasso style의 regularization을 통하여 hidden representation이 sparsity를 가지도록 학습 (0이 되는 것도 존재하게 만든다)
+
+
+128. Denoising autoencoder
+- 입력 변수에 노이즈를 추가하여 입력의 변동에 안정적인 autoencoder를 학습하는 방법
+노이즈가 없는 입력에 노이즈를 넣고, 노이즈가 있는 입력을 넣었을 때 나온 아웃풋 값이
+노이즈가 없는 입력과 비교했을 때 얼마나 노이즈를 제거 했는지 비교한다.
+
+
+129. score estimation for anomaly detection
+autoencoder가 데이터의 분포를 잘 표현하도록 학습한다면, reconstruction에 의하여 생기는
+오차를 해당 데이터가 가지는 이질성으로 판단할 수 있음
+따라서 이질성이 큰 데이터들은 다른 데이터들과 다른 성질을 가지고 있다고 판단하고 anomaly로 간주한다.
+- 일종의 다양체 학습 -> autoencoder는 학습에 사용된 데이터들의 다양체를 학습 가능하다.
+
+
+130. Deep/Stacked Autoencoder
+여러 층을 가진 autoencoder
+가장 가운데에 있는 layer(inner most hidden layer)를 representation으로 사용
+
+
+131. Convolutional and Recurrent Autoencoders(CNN, RNN도 autoencoder가능)
+
+
+132. conditional models
+학습한 데이터 중 일부 특성을 가지는 데이터만 생성하고 싶은 경우
+ex) 숫자 이미지를 학습한 후, 지정한 숫자의 생성만 원하는 경우
+Conditional VAE -> encoder와 decoder에 모두 condition을 입력으로 활용
+Conditional GAN -> generator의 input으로 condition(class) 사용
+GAN->generate는 학습이 어려우나 discriminator는 학습이 쉬움
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
